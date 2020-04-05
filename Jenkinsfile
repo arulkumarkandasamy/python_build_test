@@ -17,7 +17,7 @@ pipeline {
         cat helloworld/values.yaml
         pwd
         '''
-        dir(helloworld) {       
+        dir('helloworld') {       
         sh '''              
             git add --all .                        
             git commit -m "Update values yaml with new docker image"                        
