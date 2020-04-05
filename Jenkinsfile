@@ -1,5 +1,5 @@
 pipeline {
-  agent { docker { image 'python:3.7.2' } }
+  agent { docker { image 'arulkumar1967/python-yaml:latest' } }
   stages {
     stage('build') {
       steps {
@@ -11,7 +11,6 @@ pipeline {
         python --version
         chmod 777 update_values.py
         ls -la
-        pip install --no-cache-dir pyyaml
         ./update_values.py 'helloworld' '0.1.31'
         cd ${params.repository}-charts                        
         git add --all .                        
