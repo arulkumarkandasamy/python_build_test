@@ -11,7 +11,7 @@ pipeline {
         python --version
         chmod 777 update_values.py
         ls -la
-        sudo pip install pyyaml
+        pip install --no-cache-dir pyyaml
         ./update_values.py 'helloworld' '0.1.31'
         cd ${params.repository}-charts                        
         git add --all .                        
