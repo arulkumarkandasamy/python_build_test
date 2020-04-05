@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh '''
         git clone https://github.com/arulrevtest/helloworld.git
-        ls -la
+        ls -la helloworld
 
         '''
       }
