@@ -9,10 +9,10 @@ pipeline {
         ls -la
         ls -la helloworld
         python --version
-        chmod 777 update_values.py
+        chmod -R 777 helloworld
         ls -la
         #./update_values.py 'helloworld' '0.1.31'
-        sed -i 's/^# tag=.*/tag=0.1.31/' helloworld/values.yaml
+        sed -i 's/^# version=.*/version=0.1.31/' helloworld/values.yaml
         cat helloworld/values.yaml
         pwd
         cd helloworld                        
