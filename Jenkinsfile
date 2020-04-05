@@ -7,7 +7,7 @@ pipeline {
         if [ -d "helloworld" ]; then rm -Rf helloworld; fi
         git clone https://github.com/arulrevtest/helloworld.git
         ls -la helloworld
-        PYTHON = which python
+        PYTHON = `which python`
         ${PYTHON} update_values.py 'helloworld' '0.1.31'
         cd ${params.repository}-charts                        
         git add --all .                        
