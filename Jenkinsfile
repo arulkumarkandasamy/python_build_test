@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
+      script {
         sh '''
         if [ -d "helloworld" ]; then rm -Rf helloworld; fi
         git clone https://github.com/arulrevtest/helloworld.git
@@ -15,12 +16,17 @@ pipeline {
         sed -i 's/^# version=.*/version=0.1.31/' helloworld/values.yaml
         cat helloworld/values.yaml
         pwd
-        cd helloworld                        
-        git add --all .                        
-        git commit -m "Update values yaml with new docker image"                        
-        git push origin ${params.branch}
+        '''
+        dir(helloworld) {       
+        sh '''              
+            git add --all .                        
+            git commit -m "Update values yaml with new docker image"                        
+            git push origin ${params.branch}
+            '''
+        }
 
         '''
+      }
       }
     }
   }
