@@ -6,9 +6,12 @@ pipeline {
         sh '''
         if [ -d "helloworld" ]; then rm -Rf helloworld; fi
         git clone https://github.com/arulrevtest/helloworld.git
+        ls -la
         ls -la helloworld
         python --version
-        /usr/local/bin/python update_values.py 'helloworld' '0.1.31'
+        chmod 777 update_values.py
+        ls -la
+        python ./update_values.py 'helloworld' '0.1.31'
         cd ${params.repository}-charts                        
         git add --all .                        
         git commit -m "Update values yaml with new docker image"                        
