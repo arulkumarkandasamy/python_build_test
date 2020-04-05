@@ -4,8 +4,7 @@ pipeline {
     stage('build') {
       steps {
         sh '''
-        $WORKING_DIR = 'helloworld'
-        if [ -d "$WORKING_DIR" ]; then rm -Rf $WORKING_DIR; fi
+        if [ -d "helloworld" ]; then rm -Rf helloworld; fi
         git clone https://github.com/arulrevtest/helloworld.git
         ls -la helloworld
 
