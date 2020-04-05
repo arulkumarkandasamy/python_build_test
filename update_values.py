@@ -3,8 +3,8 @@
 import yaml
 import sys
 
-repository_name = 'helloworld'
-new_version = '0.1.31'
+repository_name = sys.argv[1]
+new_version = sys.argv[2]
 
 fname = repository_name + "values.yaml"
 
