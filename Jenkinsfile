@@ -1,5 +1,5 @@
 pipeline {
-  agent { docker { image 'arulkumar1967/python-yaml:latest' } }
+  agent { docker { image 'arulkumar1967/python-git-yaml:latest' } }
   stages {
     stage('build') {
       steps {
