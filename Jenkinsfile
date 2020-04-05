@@ -3,18 +3,12 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'pip install -r requirements.txt'
+        sh '''
+        git clone https://github.com/arulrevtest/helloworld.git
+        ls -la
+
+        '''
       }
-    }
-    stage('test') {
-      steps {
-        sh 'python test.py'
-      }
-      post {
-        always {
-          junit 'test-reports/*.xml'
-        }
-      }    
     }
   }
 }
