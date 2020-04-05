@@ -14,7 +14,6 @@ pipeline {
         #./update_values.py 'helloworld' '0.1.31'
         sed -i 's/^# ImagePullPolicy=.*/ImagePullPolicy=IfNotPresent/' helloworld/values.yaml
         cat helloworld/values.yaml
-        pwd          
         git add --all .                        
         git commit -m "Update values yaml with new docker image"                        
         git push origin master
