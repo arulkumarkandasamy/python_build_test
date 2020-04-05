@@ -13,6 +13,8 @@ pipeline {
         ls -la
         #./update_values.py 'helloworld' '0.1.31'
         sed -i 's/^# tag=.*/tag=0.1.31/' helloworld/values.yaml
+        cat helloworld/values.yaml
+        pwd
         cd helloworld                        
         git add --all .                        
         git commit -m "Update values yaml with new docker image"                        
