@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('build') {
       steps {
-      script {
         sh '''
         if [ -d "helloworld" ]; then rm -Rf helloworld; fi
         git clone https://github.com/arulrevtest/helloworld.git
@@ -22,11 +21,8 @@ pipeline {
             git add --all .                        
             git commit -m "Update values yaml with new docker image"                        
             git push origin ${params.branch}
-            '''
+           '''
         }
-
-        '''
-      }
       }
     }
   }
