@@ -10,8 +10,7 @@ pipeline {
         '''
         dir ('helloworld') {
             sh ''' 
-                git commit -a -m "Update values yaml with new docker image"                        
-                git push origin master
+                cat values.yaml
             '''
         }
       }
