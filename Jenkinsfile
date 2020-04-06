@@ -6,11 +6,8 @@ pipeline {
         sh '''
         if [ -d "helloworld" ]; then rm -Rf helloworld; fi
         git clone https://github.com/arulrevtest/helloworld.git
-        ls -la
-        ls -la helloworld
-        python --version
         chmod -R 777 helloworld
-        ls -la       
+        cd helloworld 
         git commit -a -m "Update values yaml with new docker image"                        
         git push origin master
         '''
