@@ -7,10 +7,13 @@ pipeline {
         if [ -d "helloworld" ]; then rm -Rf helloworld; fi
         git clone https://github.com/arulrevtest/helloworld.git
         chmod -R 777 helloworld
-        cd helloworld 
-        git commit -a -m "Update values yaml with new docker image"                        
-        git push origin master
         '''
+        dir ('helloworld') {
+            sh ''' 
+                git commit -a -m "Update values yaml with new docker image"                        
+                git push origin master
+            '''
+        }
       }
     }
   }
